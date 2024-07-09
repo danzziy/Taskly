@@ -246,7 +246,7 @@ class HomePage extends StatelessWidget {
               ),
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset('assets/icons/Search.svg'),
+                child: SvgPicture.asset('assets/food_tutorial/Search.svg'),
               ),
               suffixIcon: Container(
                 width: 100,
@@ -262,7 +262,7 @@ class HomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/Filter.svg'),
+                        child: SvgPicture.asset('assets/food_tutorial/Filter.svg'),
                       ),
                     ],
                   ),
@@ -301,7 +301,7 @@ class HomePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
           ),
           child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
+            'assets/food_tutorial/Arrow - Left 2.svg',
             height: 20,
             width: 20,
           ),
@@ -319,7 +319,7 @@ class HomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: SvgPicture.asset(
-              'assets/icons/dots.svg',
+              'assets/food_tutorial/dots.svg',
               height: 5,
               width: 5,
             ),
@@ -420,7 +420,7 @@ class _DietItemState extends State<DietItem> {
               });
             },
             child: SvgPicture.asset(
-              'assets/icons/button.svg',
+              'assets/food_tutorial/button.svg',
               width: 30,
               height: 30,
             ),

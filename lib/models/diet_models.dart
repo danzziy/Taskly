@@ -25,7 +25,7 @@ class DietModel {
     diets.add(
       DietModel(
        name: 'Honey Pancake',
-       iconPath: 'assets/icons/honey-pancakes.svg',
+       iconPath: 'assets/food_tutorial/honey-pancakes.svg',
        level: 'Easy',
        duration: '30mins',
        calorie: '180kCal',
@@ -37,7 +37,7 @@ class DietModel {
     diets.add(
       DietModel(
        name: 'Canai Bread',
-       iconPath: 'assets/icons/canai-bread.svg',
+       iconPath: 'assets/food_tutorial/canai-bread.svg',
        level: 'Easy',
        duration: '20mins',
        calorie: '230kCal',

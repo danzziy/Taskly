@@ -17,28 +17,28 @@ class CategoryModel{
     categories.add(
       CategoryModel(
         name: 'Salad', 
-        iconPath: 'assets/icons/plate.svg', 
+        iconPath: 'assets/food_tutorial/plate.svg', 
         boxColor: (Colors.purple[100])!,
       )
     );
     categories.add(
       CategoryModel(
         name: 'Cake', 
-        iconPath: 'assets/icons/pancakes.svg', 
+        iconPath: 'assets/food_tutorial/pancakes.svg', 
         boxColor: (Colors.red[100])!,
       )
     );
     categories.add(
       CategoryModel(
         name: 'Pie', 
-        iconPath: 'assets/icons/pie.svg', 
+        iconPath: 'assets/food_tutorial/pie.svg', 
         boxColor: (Colors.deepOrange[100])!,
       )
     );
     categories.add(
       CategoryModel(
         name: 'Pie', 
-        iconPath: 'assets/icons/orange-snacks.svg', 
+        iconPath: 'assets/food_tutorial/orange-snacks.svg', 
         boxColor: (Colors.green[100])!,
       )
     );
