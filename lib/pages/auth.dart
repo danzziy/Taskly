@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/home.dart';
+import 'package:myapp/pages/home_lists.dart';
 import 'package:myapp/pages/login.dart';
 import 'package:myapp/services/auth.dart';
+import 'package:myapp/services/task_list.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class AuthPage extends StatelessWidget {
   final AuthService authService; 
-
-  const AuthPage ({super.key, required this.authService});
+  final TaskListService taskListService;
+  const AuthPage ({
+    super.key, 
+    required this.authService, 
+    required this.taskListService
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +22,13 @@ class AuthPage extends StatelessWidget {
         stream: authService.authStateChanged(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
-            return HomePage();
+            // return HomePage();
+            return HomeLists(taskListService: taskListService);
           }
           else {
             return Login(authService: authService);
           }
+          // return HomeLists(taskListService: taskListService);
         },
       ),
     );
