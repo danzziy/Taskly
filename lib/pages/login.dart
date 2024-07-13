@@ -11,9 +11,6 @@ class Login extends StatelessWidget {
 
   Login ({super.key, required this.authService});
 
-  void signUserWithEmail(email, password){
-    authService.loginWithEmail(email, password);
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +36,7 @@ class Login extends StatelessWidget {
               const SizedBox(height: 30,),
               MyButton(onTap: () async {
                 // await authService.createUser("stupid@hotmail.com", "stupid@123", "stupid@123");
-                signUserWithEmail(emailController.text, passwordController.text);
+                authService.loginWithEmail("stupid@hotmail.com", "stupid@123");
               }),
               const SizedBox(height: 5,),
               const Padding(
