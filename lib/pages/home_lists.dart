@@ -36,22 +36,42 @@ class HomeLists extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: false,
       showUnselectedLabels: false,
+      onTap: (index)  {
+        switch (index) {
+          case 0:
+            // Navigate to Home
+            break;
+          case 1:
+            // Navigate to Search
+            break;
+          case 2:
+            
+            break;
+          case 3:
+            // Navigate to Video Play
+            break;
+          case 4:
+            // Navigate to Profile or any other action
+            break;
+        }
+      },
       items: [
         BottomNavigationBarItem(
+          label: '',
           icon: SvgPicture.asset('assets/icons/home-bold.svg'),
-          label: '',
         ),
         BottomNavigationBarItem(
+          label: '',
           icon: SvgPicture.asset('assets/icons/search-outline.svg'),
-          label: '',
         ),
         BottomNavigationBarItem(
+          label: '',
           icon: SvgPicture.asset('assets/icons/add-square-outline.svg'),
-          label: '',
+          activeIcon: SvgPicture.asset('assets/icons/add-square-bold.svg'),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset('assets/icons/video-play-outline.svg'),
           label: '',
+          icon: SvgPicture.asset('assets/icons/video-play-outline.svg'),
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -100,8 +120,8 @@ class _TaskListsState extends State<TaskLists> {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return Container(
-              height: 75,
-              width: 50,
+              // height: 75,
+              // width: 50,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -117,9 +137,10 @@ class _TaskListsState extends State<TaskLists> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 8, left: 12, right: 12),
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     // TODO: I think the '!' is going to cause an issue down the line.
+                    // TODO: Use 2 Columns instead of 2 rows for alignment of widgets.
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -128,25 +149,36 @@ class _TaskListsState extends State<TaskLists> {
                             fit: BoxFit.scaleDown,
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              taskLists![index]['name']+ "jhgjhjhjdsfdhbgjg",
+                              taskLists![index]['name'],
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w400,
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
                           ),
                         ),
                         SizedBox(width: 10,),
                         Text(
-                          textAlign: TextAlign.end,
                           "${taskLists![index]['completed_tasks']}/${taskLists![index]['tasks']}",
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(taskLists![index]['created'])
+                        Text(taskLists![index]['created']),
+                        Container(
+                          height: 25,
+                          width: 25,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                        )
                       ],
                     ),
                   ],
