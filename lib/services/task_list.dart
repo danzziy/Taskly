@@ -1,3 +1,4 @@
+import 'package:myapp/models/task_lists_model.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class TaskListService {
@@ -7,10 +8,31 @@ class TaskListService {
     required this.pb
   });
 
-  Future<List<RecordModel>>  viewLists() async {
-    print("###################################HERE##############################");
-    print(pb.authStore.model);
+  // TODO: Refactor horribly named function that does too many things. 
+  // This function subscribes to a list that outlines all the lists shared with a user and it
+  // subscribes to all the lists. I did this because when a user is removed as a viewer of a list,
+  // they do not receive an update about it as the status of that list no longer concerns them,
+  // however the status does concern them as they need  to atleast see the list disappear from 
+  // their home page.
+  Future<List<RecordModel>> subscribeToTaskLists(void Function(dynamic) onUpdate) async {
+    await pb.collection('shared_lists').subscribe('*', (e) {
+      // print(e.action);
+      // print(e.record);
+      // print(e.toString());
+      onUpdate(e);
+    });
 
-    return await pb.collection('taskLists').getFullList(sort: 'created');
+    await pb.collection('task_lists').subscribe('*', (e) {
+      print(e.action);
+      print(e.record);
+      // print(e.toString());
+      onUpdate(e);
+    });
+    
+    Future<List<TaskListModel>> taskLists;
+
+    dynamic items = await pb.collection('task_lists').getFullList(sort: 'created');
+
+    return await pb.collection('task_lists').getFullList(sort: 'created');;
   }
 }
