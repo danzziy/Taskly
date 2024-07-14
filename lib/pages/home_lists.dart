@@ -1,15 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:myapp/components/bottom_nav_bar.dart';
 import 'package:myapp/services/task_list.dart';
-import 'package:pocketbase/pocketbase.dart';
 
 // TODO: I need a way to cache a user's lists so loading from DB isn't so painful.
 
 class HomeLists extends StatelessWidget {
   final TaskListService taskListService;
-  
+
   HomeLists ({super.key, required this.taskListService});
   
   @override
@@ -27,64 +26,7 @@ class HomeLists extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _BottomNavigationBar(),
-    );
-  }
-
-  BottomNavigationBar _BottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      onTap: (index)  {
-        switch (index) {
-          case 0:
-            // Navigate to Home
-            break;
-          case 1:
-            // Navigate to Search
-            break;
-          case 2:
-            
-            break;
-          case 3:
-            // Navigate to Video Play
-            break;
-          case 4:
-            // Navigate to Profile or any other action
-            break;
-        }
-      },
-      items: [
-        BottomNavigationBarItem(
-          label: '',
-          icon: SvgPicture.asset('assets/icons/home-bold.svg'),
-        ),
-        BottomNavigationBarItem(
-          label: '',
-          icon: SvgPicture.asset('assets/icons/search-outline.svg'),
-        ),
-        BottomNavigationBarItem(
-          label: '',
-          icon: SvgPicture.asset('assets/icons/add-square-outline.svg'),
-          activeIcon: SvgPicture.asset('assets/icons/add-square-bold.svg'),
-        ),
-        BottomNavigationBarItem(
-          label: '',
-          icon: SvgPicture.asset('assets/icons/video-play-outline.svg'),
-        ),
-        BottomNavigationBarItem(
-          icon: Container(
-            height: 30,
-            width: 30,
-            decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/icons/google.png')),
-              shape: BoxShape.circle,
-            ),
-          ),
-          label: '',
-        ),
-      ],
+      bottomNavigationBar: BottomNavBar(taskListService: taskListService),
     );
   }
 }
