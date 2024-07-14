@@ -19,7 +19,7 @@ class AuthService {
     var data = {
       'email': email,
       'password': password, 
-      'passwordConfirm': password,
+      'passwordConfirm': confirmPassword,
       'emailVisibility': false,
     };
     var result = await pb.collection('users').create(body: data);
