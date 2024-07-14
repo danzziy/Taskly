@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/auth.dart';
 import 'package:myapp/pages/home.dart';
+import 'package:myapp/pages/home_lists.dart';
 import 'package:myapp/pages/login.dart';
 import 'package:myapp/services/auth.dart';
 import 'package:myapp/services/task_list.dart';
@@ -25,6 +26,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: AuthPage(authService: authService, taskListService: taskListService),
+      routes: {
+        '/homelist': (context) => HomeLists(taskListService: taskListService),
+        '/homepage': (context) => HomePage(),
+      },
     );
   }
 }
