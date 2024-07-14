@@ -38,7 +38,7 @@ class TaskListService {
     viewers ??= [];
     final body = <String, dynamic>{
       'name': listName,
-      'owner': pb.authStore.model.id,
+      'user': pb.authStore.model.id,
       'viewers': viewers,
       'tasks': tasks,
       'completed_tasks': completedTasks,
