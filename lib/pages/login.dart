@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/buttom.dart';
+import 'package:myapp/components/button.dart';
 import 'package:myapp/components/input_field.dart';
 import 'package:myapp/components/square_tile.dart';
 import 'package:myapp/services/auth.dart';
+
+
+// TODO: Fix bottom overflow when keyboard is up.
 
 class Login extends StatelessWidget {
   final emailController = TextEditingController();
