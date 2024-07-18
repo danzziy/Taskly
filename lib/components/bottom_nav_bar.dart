@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/services/auth.dart';
-import 'package:myapp/services/task_list.dart';
+import 'package:myapp/services/lists.dart';
 import 'package:myapp/components/input_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

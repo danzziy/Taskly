@@ -3,7 +3,7 @@ import 'package:myapp/pages/home.dart';
 import 'package:myapp/pages/home_lists.dart';
 import 'package:myapp/pages/login.dart';
 import 'package:myapp/services/auth.dart';
-import 'package:myapp/services/task_list.dart';
+import 'package:myapp/services/lists.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class AuthPage extends StatelessWidget {
