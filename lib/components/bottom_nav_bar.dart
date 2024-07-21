@@ -18,18 +18,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
     final TextEditingController textController = TextEditingController();
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
       onTap: (index) {
-        setState(() {
-        });
+        setState(() {});
         switch (index) {
           case 0:
             //  Navigate to Home
             Navigator.pushNamed(context, '/homelists');
             break;
           case 1:
-            // Navigator.pushNamed(context, '/homepage');
+            Navigator.pushNamed(context, '/search');
             break;
           case 2:
             showDialog (
@@ -80,6 +79,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         BottomNavigationBarItem(
           label: '',
           icon: SvgPicture.asset('assets/icons/search-outline.svg'),
+          activeIcon: SvgPicture.asset('assets/icons/search-bold.svg')
         ),
         BottomNavigationBarItem(
           label: '',
