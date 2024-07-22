@@ -14,7 +14,7 @@ class TaskListService {
   // they do not receive an update about it as the status of that list no longer concerns them,
   // however the status does concern them as they need  to atleast see the list disappear from 
   // their home page.
-  Future<List<RecordModel>> subscribeToTaskLists(void Function(dynamic) onUpdate) async {
+  Future<List> subscribeToTaskLists(void Function(dynamic) onUpdate) async {
     print("SUBSCRIBE EVENT OCCURED");
     await pb.collection('shared_lists').subscribe('*', (e) {
       // print(e.action);
@@ -33,7 +33,7 @@ class TaskListService {
     return await pb.collection('task_lists').getFullList(sort: 'created');
   }
 
-  Future createTaskList(String listName, {int tasks = 0, int completedTasks = 0, List<String>? viewers}) async {
+  Future<void> createTaskList(String listName, {int tasks = 0, int completedTasks = 0, List<String>? viewers}) async {
     print('create lists for ' + pb.authStore.model.id);
     viewers ??= [];
     final body = <String, dynamic>{
@@ -44,6 +44,6 @@ class TaskListService {
       'completed_tasks': completedTasks,
     };
 
-    return await pb.collection('task_lists').create(body: body);
+    await pb.collection('task_lists').create(body: body);
   }
 }
